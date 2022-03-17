@@ -11,8 +11,12 @@ export default defineComponent({
     console.log('--应用启动--')
     const route = useRoute()
     const routes = router.options.routes
-    if (route.path === '' || route.path === '/') {
+    let hash = window.location.hash
+    if (hash === '' || hash === '#/') {
       router.push({ path: routes[0].path })
+    } else {
+      let nowHash = hash.replace('#', '')
+      router.push({ path: nowHash })
     }
     return {}
   }

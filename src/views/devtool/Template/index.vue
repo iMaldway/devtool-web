@@ -63,7 +63,7 @@
         <el-table-column fixed="right" width="320" align="center" label="操作">
           <template v-slot:default="scope">
             <el-button type="success"
-              @click="goRouteQuery('file',{'id':scope.row.id})">
+              @click="goRouteQuery('/devtool/Template/file',{'id':scope.row.id})">
               <el-icon>
                 <plus />
               </el-icon>

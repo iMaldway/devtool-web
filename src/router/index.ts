@@ -8,9 +8,13 @@ const routes = [
     component: Layout,
     redirect: "/devtool/Database/index",
     name: "devtoolDatabase",
+    meta: {
+      title: "数据库管理",
+      icon: "Coin",
+    },
     children: [
       {
-        path: "index",
+        path: "/devtool/Database/index",
         component: () => import("@/views/devtool/Database/index.vue"),
         name: "Database",
         meta: {
@@ -27,9 +31,13 @@ const routes = [
     component: Layout,
     redirect: "/devtool/GeneratorConfig/index",
     name: "devtoolGeneratorConfig",
+    meta: {
+      title: "生成管理",
+      icon: "Cpu",
+    },
     children: [
       {
-        path: "index",
+        path: "/devtool/GeneratorConfig/index",
         component: () => import("@/views/devtool/GeneratorConfig/index.vue"),
         name: "GeneratorConfig",
         meta: {
@@ -52,7 +60,7 @@ const routes = [
     },
     children: [
       {
-        path: "index",
+        path: "/devtool/Template/index",
         component: () => import("@/views/devtool/Template/index.vue"),
         name: "Template",
         meta: {
@@ -63,7 +71,7 @@ const routes = [
         },
       },
       {
-        path: "file",
+        path: "/devtool/Template/file",
         component: () =>
           import("@/views/devtool/Template/components/TemplateFile.vue"),
         name: "TemplateFile",
@@ -82,9 +90,13 @@ const routes = [
     component: Layout,
     redirect: "/devtool/Analysis/index",
     name: "devtoolAnalysis",
+    meta: {
+      title: "分析管理",
+      icon: "DataAnalysis",
+    },
     children: [
       {
-        path: "index",
+        path: "/devtool/Analysis/index",
         component: () => import("@/views/devtool/Analysis/index.vue"),
         name: "devtoolAnalysisIndex",
         meta: {

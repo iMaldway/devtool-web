@@ -22,7 +22,7 @@
   </el-menu-item>
 </template>
 <script lang="ts">
-import { defineComponent, toRefs } from 'vue'
+import { defineComponent, ref, toRefs } from 'vue'
 export default defineComponent({
   name: 'SideBarItem',
   components: {},
@@ -44,6 +44,7 @@ export default defineComponent({
         return routePath
       }
     }
+
     const isShowChildren = (item: any) => {
       // 默认展示子级
       let is: boolean = true
@@ -56,7 +57,6 @@ export default defineComponent({
             return true
           }
         })
-
         // 仅存在一个展示的子级时比对是否重定向
         if (showingChildren.length === 1 && item.redirect) {
           let topath = item.path + '/' + showingChildren[0].path
@@ -65,9 +65,6 @@ export default defineComponent({
             item.redirect === showingChildren[0].path
           ) {
             is = false
-            // 变更当前path
-            item.path = topath
-            item.meta = showingChildren[0].meta
           }
         }
         // 没有子集展示时

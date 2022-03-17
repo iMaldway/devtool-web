@@ -1,15 +1,17 @@
 <template>
   <el-container class="layout">
-    <el-header>
-      <Navbar></Navbar>
-    </el-header>
     <el-container>
-      <el-aside width="200px">
+      <el-aside :width="asideWidth">
         <SideBar></SideBar>
       </el-aside>
-      <el-main>
-        <AppMain></AppMain>
-      </el-main>
+      <el-container>
+        <el-header>
+          <Navbar></Navbar>
+        </el-header>
+        <el-main>
+          <AppMain></AppMain>
+        </el-main>
+      </el-container>
     </el-container>
   </el-container>
 </template>
@@ -31,8 +33,12 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const title = computed(() => store.state.serviceName)
+    const isCollapse = computed(() => store.state.layout.isCollapse)
+    const asideWidth = computed(() =>
+      store.state.layout.isCollapse ? '65px' : '201px'
+    )
     console.log(title.value)
-    return { title }
+    return { title, asideWidth }
   }
 })
 </script>
@@ -42,6 +48,11 @@ export default defineComponent({
   height: 100%;
   :deep(.el-header) {
     padding: 0;
+  }
+  .el-aside {
+    transition: all 0.3s;
+    border-right: 1px solid #dcdfe6;
+    overflow-x: hidden;
   }
 }
 </style>
