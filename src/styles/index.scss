@@ -1,0 +1,67 @@
+#app {
+    .el-main{
+        overflow-x: hidden;
+    }
+    .app{
+        &_container{
+            display: flex;
+            justify-content: flex-start;
+            align-content: flex-start;
+            align-items: flex-start;
+
+            .el-row{
+                width: 100%;
+            }
+            .el-dialog__header{
+                text-align: left;
+            }
+            .btn_text{
+                margin-left: 5px;
+            }
+        }
+        &_table{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.el-select{
+  width: 100%;
+}
+
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all .5s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* breadcrumb transition */
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all .5s;
+}
+
+.breadcrumb-enter,
+.breadcrumb-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.breadcrumb-move {
+  transition: all .5s;
+}
+
+.breadcrumb-leave-active {
+  position: absolute;
+}
