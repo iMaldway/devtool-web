@@ -144,7 +144,9 @@ export default class DatabaseController {
           database: itme.name,
           tableName: "",
         };
-        const res = await DevtoolGeneratorDatabase.getTables(this.tableInfo);
+        const res = await DevtoolGeneratorDatabase.getTables(
+          this.tableInfo.value
+        );
         this.selectDataBaseTableList.value = res.list;
 
         this.selectTable(res.list[0]);
