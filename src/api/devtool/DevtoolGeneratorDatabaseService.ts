@@ -1,79 +1,76 @@
-import request from '@/utils/Request';
+import request from "@/utils/Request";
 const serviceName = "/devtool/database";
 
 // 查询列表
 export function getList(data: any) {
   return request({
     url: serviceName,
-    method: 'get',
-    params: data
-  })
+    method: "get",
+    params: data,
+  });
 }
 
 // 查询host列表
-export function getHostList(data: any) {
+export function getHostList(data?: any) {
   return request({
-    url: serviceName + '/host',
-    method: 'get',
-    params: data
-  })
+    url: serviceName + "/host",
+    method: "get",
+    params: data,
+  });
 }
 
 // 查询数据表集合
 export function getTables(data: any) {
   return request({
-    url: serviceName + '/tables',
-    method: 'get',
-    params: data
-  })
+    url: serviceName + "/tables",
+    method: "get",
+    params: data,
+  });
 }
 
 // 查询数据表字段集合
 export function getTableInfo(data: any) {
   return request({
-    url: serviceName + '/table/info',
-    method: 'get',
-    params: data
-  })
+    url: serviceName + "/table/info",
+    method: "get",
+    params: data,
+  });
 }
 
 // 新增
 export function add(data: any) {
   return request({
     url: serviceName,
-    method: 'post',
-    data: data
-  })
+    method: "post",
+    data: data,
+  });
 }
 
 // 修改
 export function update(data: any) {
   return request({
     url: serviceName,
-    method: 'put',
-    data: data
-  })
+    method: "put",
+    data: data,
+  });
 }
 
 // 删除
 export function remove(id: string | number) {
   return request({
     url: serviceName,
-    method: 'delete',
+    method: "delete",
     data: {
-      'id': id
-    }
-  })
+      id: id,
+    },
+  });
 }
 
 // 根据id获取详细信息
 export function getInfo(id: string | number) {
   return request({
     url: serviceName,
-    method: 'get',
-    params: { 'id': id }
-  })
+    method: "get",
+    params: { id: id },
+  });
 }
-
-
-

@@ -96,9 +96,24 @@
           <el-input v-model="dataForm.url" placeholder="网址"></el-input>
         </el-form-item>
 
+        <el-form-item label="示例">
+          <el-tree :data="examplesData" :props="examplesProps"></el-tree>
+        </el-form-item>
+
         <!-- 主体内容 -->
         <el-form-item label="主体内容" prop="body">
           <Codemirror v-model:value="dataForm.body" style="text-align: left;"
+            :options="cmOptions" border placeholder="主体内容" :height="400" />
+        </el-form-item>
+
+        <el-form-item label="测试">
+          <el-button type="primary" :loading="testVisible" @click="onTest">点击测试
+          </el-button>
+        </el-form-item>
+
+        <!-- 测试内容 -->
+        <el-form-item label="测试内容">
+          <Codemirror v-model:value="test" style="text-align: left;"
             :options="cmOptions" border placeholder="主体内容" :height="400" />
         </el-form-item>
 
@@ -129,6 +144,8 @@ import Codemirror from 'codemirror-editor-vue3'
 // language
 import 'codemirror/mode/javascript/javascript.js'
 
+import examples from './examples'
+
 export default defineComponent({
   name: 'Analysis',
   components: {
@@ -145,9 +162,18 @@ export default defineComponent({
       foldGutter: true, // 启用行槽中的代码折叠
       styleActiveLine: true // 显示选中行的样式
     }
+
+    const examplesData = examples
+    const examplesProps = {
+      children: 'children',
+      label: 'label'
+    }
+
     return {
       ...controller,
-      cmOptions
+      cmOptions,
+      examplesData,
+      examplesProps
     }
   }
 })

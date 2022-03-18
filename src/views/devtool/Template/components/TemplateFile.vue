@@ -91,18 +91,29 @@
         label-width="120px" label-position="left">
 
         <!-- 模版ID -->
-        <el-form-item label="模版ID" prop="templateId">
+        <!-- <el-form-item label="模版ID" prop="templateId">
           <el-input v-model="dataForm.templateId" placeholder="模版ID"></el-input>
-        </el-form-item>
-
-        <!-- 分类 -->
-        <el-form-item label="分类" prop="classify">
-          <el-input v-model="dataForm.classify" placeholder="分类"></el-input>
-        </el-form-item>
+        </el-form-item> -->
 
         <!-- 文件名称 -->
         <el-form-item label="文件名称" prop="name">
           <el-input v-model="dataForm.name" placeholder="文件名称"></el-input>
+        </el-form-item>
+
+        <!-- 分类 -->
+        <el-form-item label="描述内容" prop="classify">
+          <el-input v-model="dataForm.classify" placeholder="描述内容"></el-input>
+        </el-form-item>
+
+        <el-form-item label="可用数据">
+          <el-row>
+            <el-col :span="12">
+              <el-tree :data="examplesData" :props="examplesProps"></el-tree>
+            </el-col>
+            <el-col :span="12">
+              <el-tree :data="analysisData" :props="analysisProps"></el-tree>
+            </el-col>
+          </el-row>
         </el-form-item>
 
         <!-- 模版内容 -->
@@ -139,7 +150,7 @@
   </el-row>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive } from 'vue'
 import TemplateFileController from '../../../../controller/TemplateFileController'
 import { useRoute } from 'vue-router'
 
@@ -147,6 +158,9 @@ import Codemirror from 'codemirror-editor-vue3'
 
 // language
 import 'codemirror/mode/javascript/javascript.js'
+
+import examples from './examples'
+import analysis from './analysis'
 
 export default defineComponent({
   name: 'TemplateFile',
@@ -168,10 +182,23 @@ export default defineComponent({
       foldGutter: true, // 启用行槽中的代码折叠
       styleActiveLine: true // 显示选中行的样式
     }
-
+    const examplesData = examples
+    const examplesProps = {
+      children: 'children',
+      label: 'label'
+    }
+    const analysisData = analysis
+    const analysisProps = {
+      children: 'children',
+      label: 'label'
+    }
     return {
       ...controller,
-      cmOptions
+      cmOptions,
+      examplesData,
+      examplesProps,
+      analysisData,
+      analysisProps
     }
   }
 })

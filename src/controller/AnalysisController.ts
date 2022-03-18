@@ -1,5 +1,6 @@
 import BasicController from "./BasicController";
 import * as Api from "../api/devtool/DevtoolAnalysisService";
+import * as GenerateAPI from "../api/devtool/GenerateAPIService";
 import { reactive } from "vue";
 
 import { ElMessageBox, ElMessage } from "element-plus";
@@ -10,10 +11,14 @@ export default class AnalysisController extends BasicController {
   public dataFormRules;
   public searchRules;
   public Api;
+  public testVisible;
+  public test;
 
   constructor() {
     super();
     this.Api = Api;
+    this.testVisible = false;
+    this.test = "";
     this.dataForm = reactive({
       type: undefined,
       url: undefined,
@@ -52,6 +57,31 @@ export default class AnalysisController extends BasicController {
     this.searchForm.pageSize = 10;
     this.searchForm.name = undefined;
     this.getList();
+  };
+  onTest = () => {
+    if (this.dataFormRef && this.dataFormRef.value) {
+      this.dataFormRef.value.validate(async (valid: boolean) => {
+        if (!valid) {
+          ElMessage({
+            type: "warning",
+            message: "请将必须的数据填写完整!",
+          });
+          return;
+        }
+        try {
+          this.testVisible = true;
+          let res = await GenerateAPI.test({
+            url: this.dataForm.url,
+            body: this.dataForm.body,
+          });
+          this.test = JSON.stringify(res, null, 2);
+        } catch (error) {
+          console.error(error);
+        } finally {
+          this.testVisible = false;
+        }
+      });
+    }
   };
   confirm = () => {
     if (this.dataFormRef && this.dataFormRef.value) {

@@ -108,6 +108,29 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/devtool/CodeGeneration",
+    component: Layout,
+    redirect: "/devtool/CodeGeneration/index",
+    name: "devtoolCodeGeneration",
+    meta: {
+      title: "生成管理",
+      icon: "Download",
+    },
+    children: [
+      {
+        path: "/devtool/CodeGeneration/index",
+        component: () => import("@/views/devtool/CodeGeneration/index.vue"),
+        name: "devtoolCodeGenerationIndex",
+        meta: {
+          title: "生成配置",
+          icon: "Download",
+          noCache: true,
+          affix: true,
+        },
+      },
+    ],
+  },
 ];
 
 export default createRouter({

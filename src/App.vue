@@ -4,19 +4,21 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useRoute } from 'vue-router'
 import router from './router'
+
+import Address from './utils/Address'
+
 export default defineComponent({
   setup() {
     console.log('--应用启动--')
-    const route = useRoute()
     const routes = router.options.routes
     let hash = window.location.hash
+    const address = new Address()
     if (hash === '' || hash === '#/') {
       router.push({ path: routes[0].path })
     } else {
       let nowHash = hash.replace('#', '')
-      router.push({ path: nowHash })
+      router.push({ path: nowHash, query: address.getURLParameter() })
     }
     return {}
   }
