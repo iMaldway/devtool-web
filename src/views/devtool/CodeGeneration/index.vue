@@ -73,7 +73,7 @@
         <el-row>
           表名：{{ tableItme.tableName }}
         </el-row>
-        <el-table v-if="tableData && tableData.length >0" stripe height="400px"
+        <el-table v-if="tableData && tableData.length >0" stripe
           :data="tableData" v-loading="listLoading" style="margin-top: 30px">
           <el-table-column prop="columnName" align="center" width="160"
             label="字段名称">
@@ -141,7 +141,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .app_container {
   width: 100%;
-  height: 100%;
+  height: auto;
 
   .el-aside {
     height: 100%;
@@ -150,6 +150,7 @@ export default defineComponent({
     padding: 10px;
   }
   .el-header {
+    height: auto;
     padding-left: 20px;
     padding-right: 20px;
     text-align: left;
