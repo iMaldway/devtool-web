@@ -3,7 +3,7 @@
     <el-row>
       <el-form :inline="true" :model="searchForm" ref="searchFormRef">
         <el-form-item prop="name">
-          <el-input v-model="searchForm.name" placeholder="名称">
+          <el-input v-model="searchForm.name" placeholder="数据库名称">
           </el-input>
         </el-form-item>
         <el-form-item>
@@ -115,10 +115,14 @@
           <el-input v-model="dataForm.name" placeholder="数据库名称"></el-input>
         </el-form-item>
 
-        <!-- 数据库描述名称 -->
-        <el-form-item label="数据库描述" prop="descName">
-          <el-input v-model="dataForm.descName" placeholder="数据库描述名称">
-          </el-input>
+        <!-- 数据库名称 -->
+        <el-form-item label="数据库账号" prop="username">
+          <el-input v-model="dataForm.username" placeholder="数据库账号"></el-input>
+        </el-form-item>
+
+        <!-- 数据库密码 -->
+        <el-form-item label="数据库密码" prop="password">
+          <el-input v-model="dataForm.password" placeholder="数据库密码"></el-input>
         </el-form-item>
 
         <!--  数据驱动类 -->
@@ -138,6 +142,12 @@
           <el-input v-model="dataForm.port" placeholder=""></el-input>
         </el-form-item>
 
+        <!-- 数据库描述名称 -->
+        <el-form-item label="数据库描述" prop="descName">
+          <el-input v-model="dataForm.descName" placeholder="数据库描述名称">
+          </el-input>
+        </el-form-item>
+
         <!-- 不包括数据库和参数 -->
         <el-form-item label="jdbcUrl" prop="jdbcUrl">
           <el-input v-model="dataForm.jdbcUrl" placeholder="不包括数据库和参数">
@@ -148,16 +158,6 @@
         <el-form-item label="参数信息" prop="jdbcParams">
           <el-input v-model="dataForm.jdbcParams" placeholder="连接参数信息">
           </el-input>
-        </el-form-item>
-
-        <!-- 数据库名称 -->
-        <el-form-item label="数据库名称" prop="username">
-          <el-input v-model="dataForm.username" placeholder="数据库名称"></el-input>
-        </el-form-item>
-
-        <!-- 数据库密码 -->
-        <el-form-item label="数据库密码" prop="password">
-          <el-input v-model="dataForm.password" placeholder="数据库密码"></el-input>
         </el-form-item>
 
       </el-form>

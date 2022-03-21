@@ -107,16 +107,6 @@
           <el-input v-model="dataForm.name" placeholder="名称"></el-input>
         </el-form-item>
 
-        <!-- 作者名称 -->
-        <el-form-item label="作者名称" prop="author">
-          <el-input v-model="dataForm.author" placeholder="作者名称"></el-input>
-        </el-form-item>
-
-        <!-- 版权内容 -->
-        <el-form-item label="版权内容" prop="copyright">
-          <el-input v-model="dataForm.copyright" placeholder="版权内容"></el-input>
-        </el-form-item>
-
         <!-- 包名称 -->
         <el-form-item label="包名称" prop="packageName">
           <el-input v-model="dataForm.packageName" placeholder="包名称"></el-input>
@@ -130,6 +120,16 @@
         <!-- 表前缀 -->
         <el-form-item label="表前缀" prop="tablePrefix">
           <el-input v-model="dataForm.tablePrefix" placeholder="表前缀"></el-input>
+        </el-form-item>
+
+        <!-- 作者名称 -->
+        <el-form-item label="作者名称" prop="author">
+          <el-input v-model="dataForm.author" placeholder="作者名称"></el-input>
+        </el-form-item>
+
+        <!-- 版权内容 -->
+        <el-form-item label="版权内容" prop="copyright">
+          <el-input v-model="dataForm.copyright" placeholder="版权内容"></el-input>
         </el-form-item>
 
         <!-- 描述信息 -->

@@ -29,16 +29,13 @@ export default class DatabaseController extends BasicController {
       name: [
         { required: true, message: "数据库名称不能为空", trigger: "blur" },
       ],
-      descName: [
-        { required: true, message: "数据库描述名称不能为空", trigger: "blur" },
-      ],
       driverClassName: [
         { required: true, message: " 数据驱动类不能为空", trigger: "blur" },
       ],
       host: [{ required: true, message: "host不能为空", trigger: "blur" }],
       port: [{ required: true, message: "port不能为空", trigger: "blur" }],
       username: [
-        { required: true, message: "数据库名称不能为空", trigger: "blur" },
+        { required: true, message: "数据库账号不能为空", trigger: "blur" },
       ],
       password: [
         { required: true, message: "数据库密码不能为空", trigger: "blur" },

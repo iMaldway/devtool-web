@@ -46,10 +46,6 @@
         <el-table-column prop="name" align="center" label="模版名称">
         </el-table-column>
 
-        <!-- 模版描述 -->
-        <el-table-column prop="describe" align="center" label="模版描述">
-        </el-table-column>
-
         <!-- 状态|-1=无效,0=未启用,1=启用 -->
         <el-table-column prop="status" align="center" label="状态">
           <template v-slot:default="{row}">
@@ -58,6 +54,10 @@
             <span v-else-if="row.status === 1">启用</span>
             <span v-else>其他</span>
           </template>
+        </el-table-column>
+
+        <!-- 模版描述 -->
+        <el-table-column prop="describe" align="center" label="模版描述">
         </el-table-column>
 
         <el-table-column fixed="right" width="320" align="center" label="操作">
@@ -104,11 +104,6 @@
           <el-input v-model="dataForm.name" placeholder="模版名称"></el-input>
         </el-form-item>
 
-        <!-- 模版描述 -->
-        <el-form-item label="模版描述" prop="describe">
-          <el-input v-model="dataForm.describe" placeholder="模版描述"></el-input>
-        </el-form-item>
-
         <!-- 状态|-1=无效,0=未启用,1=启用 -->
         <el-form-item label="状态" prop="status">
           <el-select v-model="dataForm.status" placeholder=" 状态">
@@ -116,6 +111,11 @@
             <el-option label="未启用" :value="0" />
             <el-option label="启用" :value="1" />
           </el-select>
+        </el-form-item>
+
+        <!-- 模版描述 -->
+        <el-form-item label="模版描述" prop="describe">
+          <el-input v-model="dataForm.describe" placeholder="模版描述"></el-input>
         </el-form-item>
 
       </el-form>

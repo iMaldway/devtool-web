@@ -2,8 +2,8 @@
   <el-row class="app_container">
     <el-row>
       <el-form :inline="true" :model="searchForm" ref="searchFormRef">
-        <el-form-item prop="name">
-          <el-input v-model="searchForm.name" placeholder="名称">
+        <el-form-item prop="type">
+          <el-input v-model="searchForm.type" placeholder="名称">
           </el-input>
         </el-form-item>
         <el-form-item>
@@ -43,7 +43,7 @@
         </el-table-column>
 
         <!-- 类型 -->
-        <el-table-column prop="type" align="center" label="类型">
+        <el-table-column prop="type" align="center" label="名称">
         </el-table-column>
 
         <!-- 网址 -->
@@ -87,7 +87,7 @@
         label-width="120px" label-position="left">
 
         <!-- 类型 -->
-        <el-form-item label="类型" prop="type">
+        <el-form-item label="名称" prop="type">
           <el-input v-model="dataForm.type" placeholder="类型"></el-input>
         </el-form-item>
 

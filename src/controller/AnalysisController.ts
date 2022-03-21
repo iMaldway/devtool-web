@@ -25,14 +25,14 @@ export default class AnalysisController extends BasicController {
       body: undefined,
     });
     this.dataFormRules = reactive({
-      type: [{ required: true, message: "类型不能为空", trigger: "blur" }],
+      type: [{ required: true, message: "名称不能为空", trigger: "blur" }],
       url: [{ required: true, message: "网址不能为空", trigger: "blur" }],
       body: [{ required: true, message: "主体内容不能为空", trigger: "blur" }],
     });
     this.searchForm = reactive({
       pageNumber: 1,
       pageSize: 10,
-      name: undefined,
+      type: undefined,
     });
     this.searchRules = reactive({});
     this.getList();
@@ -55,7 +55,7 @@ export default class AnalysisController extends BasicController {
     this.searchFormRef.value.resetFields();
     this.searchForm.pageNumber = 1;
     this.searchForm.pageSize = 10;
-    this.searchForm.name = undefined;
+    this.searchForm.type = undefined;
     this.getList();
   };
   onTest = () => {
