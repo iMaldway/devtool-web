@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ElNotification } from "element-plus";
+import { ElMessage } from "element-plus";
 import config from "../store/config";
 
 // create an axios instance
@@ -10,16 +10,16 @@ const service = axios.create({
   headers: {
     // application/x-www-form-urlencoded
     //
-    "Content-Type": "application/json;charset=UTF-8"
-  }
+    "Content-Type": "application/json;charset=UTF-8",
+  },
 });
 
 // request interceptor
 service.interceptors.request.use(
-  _config => {
-    return _config
+  (_config) => {
+    return _config;
   },
-  error => {
+  (error) => {
     // do something with request error
     console.log(error); // for debug
     return Promise.reject(error);
@@ -28,17 +28,15 @@ service.interceptors.request.use(
 
 // response interceptor
 service.interceptors.response.use(
-  response => {
+  (response) => {
     const res = response.data;
     let code = res.code;
     let message = res.message;
     // if the custom code is not 20000, it is judged as an error.
     if (code !== 200) {
-      ElNotification({
-        title: "服务异常",
-        message: message || "意料之外的结果",
-        type: code == 500 ? "error" : "warning",
-        duration: 5 * 1000
+      ElMessage({
+        type: "error",
+        message: "操作失败：" + message || "操作失败：意料之外的结果",
       });
       console.error("接口异常：" + response.config.url);
       console.error("异常信息：" + message);
@@ -49,13 +47,11 @@ service.interceptors.response.use(
       return res.data || res;
     }
   },
-  error => {
+  (error) => {
     console.error(error); // for debug
-    ElNotification({
-      title: "服务异常",
-      message: "服务器开小差啦，请稍后再试～",
+    ElMessage({
       type: "error",
-      duration: 5 * 1000
+      message: "服务器开小差啦，请稍后再试～",
     });
     return Promise.reject(error);
   }

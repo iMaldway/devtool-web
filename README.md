@@ -10,7 +10,7 @@
 此软件不受限于UI，可使用自定义业务组件、可在模板中使用JS相关语法。
 
 #### 软件架构
-采用element-plus、highlight.js、vue-codemirror等
+采用Vue3 、 TypeScript 、 element-plus、vue-codemirror等
 
 
 #### 安装教程

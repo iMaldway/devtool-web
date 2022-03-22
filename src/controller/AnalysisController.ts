@@ -103,16 +103,15 @@ export default class AnalysisController extends BasicController {
             delete this.dataForm.id;
             data = await this.Api.add(this.dataForm);
           }
+          ElMessage({
+            type: "success",
+            message: "操作成功",
+          });
         } catch (e) {
           console.error("接口异常");
         } finally {
           this.dialog.visible = false;
         }
-        ElMessage({
-          type: data ? "success" : "warning",
-          message: data ? "操作成功" : "服务器开小差了，请稍后再试",
-        });
-
         this.getList();
         this.dialog.confirmVisible = false;
       });
@@ -123,14 +122,13 @@ export default class AnalysisController extends BasicController {
     this.dialog.visible = true;
     if (this.dataFormRef && this.dataFormRef.value) {
       this.dataFormRef.value.resetFields();
+    } else {
+      this.resetDataForm(this.dataForm);
     }
   };
   handleEdit = async (scope: any) => {
     this.dialog.type = "edit";
     this.dialog.visible = true;
-    if (this.dataFormRef && this.dataFormRef.value) {
-      this.dataFormRef.value.resetFields();
-    }
     let id = scope.row.id;
     const res: any = await this.Api.getInfo(id);
     Object.assign(this.dataForm, res);

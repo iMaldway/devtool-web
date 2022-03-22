@@ -105,7 +105,7 @@
     </el-row>
 
     <!-- 提交/编辑 -->
-    <el-dialog v-if="dialog.visible" :close-on-click-modal="false"
+    <el-dialog :close-on-click-modal="false" v-if="dialog.visible"
       v-model="dialog.visible" :title="dialog.type==='edit'?'修改信息':'添加信息'">
       <el-form :model="dataForm" :rules="dataFormRules" ref="dataFormRef"
         label-width="120px" label-position="left">

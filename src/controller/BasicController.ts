@@ -43,4 +43,17 @@ export default class BasicServices {
   goRouteQuery = (path: string, params = {}) => {
     router.push({ path, query: params });
   };
+
+  /**
+   * @todo 重置对象
+   */
+  resetDataForm = (formData: any) => {
+    const keys = Object.keys(formData);
+    for (let i in keys) {
+      let key = keys[i];
+      if (typeof formData[key] !== "object") {
+        formData[key] = undefined;
+      }
+    }
+  };
 }
