@@ -2,6 +2,7 @@
 
 #### 介绍
 代码生成平台Web站点--Vue3 + TypeScript 重构版。
+Vue2版本已停止维护。
 
 采用Vue3 + TypeScript + element-plus 重构!
 
