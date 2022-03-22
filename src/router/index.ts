@@ -139,6 +139,7 @@ const routes = [
   {
     path: "/:catchAll(.*)", // 不识别的path自动匹配404
     redirect: "/404",
+    hidden: true,
   },
 ];
 

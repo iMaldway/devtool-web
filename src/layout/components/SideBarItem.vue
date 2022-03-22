@@ -1,5 +1,5 @@
 <template>
-  <el-sub-menu v-if="isShowChildren(item)" :index="item.path">
+  <el-sub-menu v-if="isShowChildren(item) && !item.hidden" :index="item.path">
     <template #title>
       <el-icon>
         <component :is="(item.meta && item.meta.icon) || 'folder'" />
@@ -12,7 +12,7 @@
       </SideBarItem>
     </el-menu-item-group>
   </el-sub-menu>
-  <el-menu-item v-else :index="item.path">
+  <el-menu-item v-if="!isShowChildren(item) && !item.hidden" :index="item.path">
     <el-icon>
       <component :is="(item.meta && item.meta.icon) || 'folder'" />
     </el-icon>
