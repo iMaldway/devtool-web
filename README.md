@@ -1,20 +1,25 @@
-# devtool-web Vue3版
+<p align="center">
+  <spen style="font-size: 34px;color:#0969da;">Devtool Web</spen>
+</p>
+<p align="center">一个代码生成平台的web站点</p>
 
-#### 介绍
-代码生成平台Web站点--Vue3 + TypeScript 重构版。
-Vue2版本已停止维护。
+#### Devtool Web
+------------
+- 💪 [Vue3](https://v3.cn.vuejs.org/ "Vue3")组合 API
+- 🔥 使用[TypeScript](https://www.tslang.cn/index.html "TypeScript")编写
+- ❤️ [Element Plus UI](https://element-plus.gitee.io/ "Element Plus UI")
+- 💛 [EJS](https://ejs.bootcss.com/ "EJS")模板引擎
+- 🕸️ [Puppeteer](https://zhaoqize.github.io/puppeteer-api-zh_CN/ "Puppeteer")数据爬取
+- 🐛  [vue-codemirror](https://github.com/surmon-china/vue-codemirror "vue-codemirror")模板编辑
 
-采用Vue3 + TypeScript + element-plus 重构!
+采用Vue3 + TypeScript + element-plus 构建🤓
 
-此软件采用EJS作为模板引擎，用于渲染自定义的模板以输出目标文件，在架构成熟的项目中可节省掉重复性的代码编写，可按照具体需求定制特殊的生成。
+采用EJS作为模板引擎，用于渲染自定义的模板以输出目标文件，在架构成熟的项目中可节省掉重复性的代码编写，可按照具体需求定制特殊的生成。
 当然如果你想生成一些别的东西也是可以的，此软件使用了Puppeteer模拟浏览器对指定网站获取指定数据。
 此软件不受限于UI，可使用自定义业务组件、可在模板中使用JS相关语法。
 
-#### 软件架构
-采用Vue3 、 TypeScript 、 element-plus、vue-codemirror等
 
-
-#### 安装教程
+#### 使用教程
 
 ```
 npm install
