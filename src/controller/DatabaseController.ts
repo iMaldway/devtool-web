@@ -11,21 +11,6 @@ export default class DatabaseController extends BasicController {
   public searchRules;
   public Api;
 
-  /**
-   * @todo 默认数据源
-   */
-  public defaultDataSource = {
-    name: undefined,
-    descName: undefined,
-    driverClassName: "mysql",
-    host: undefined,
-    port: undefined,
-    jdbcUrl: undefined,
-    jdbcParams: undefined,
-    username: undefined,
-    password: undefined,
-  };
-
   constructor() {
     super();
     this.Api = Api;
