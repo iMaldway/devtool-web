@@ -1,13 +1,40 @@
-import { ref, reactive } from "vue";
+import { ref, reactive, Ref } from "vue";
 import router from "../router";
+/**
+ * @class 基础服务对象
+ */
 export default class BasicServices {
-  public dataFormRef;
-  public searchFormRef;
-  public listLoading;
-  public total;
-  public dialog;
-  public tableData;
-  public pageSizes;
+  /**
+   * @todo 提交表单ref
+   */
+  public dataFormRef: Ref;
+  /**
+   * @todo 搜索表单ref
+   */
+  public searchFormRef: Ref;
+  /**
+   * @todo 表格加载动画控制
+   */
+  public listLoading: Ref<boolean>;
+  /**
+   * @todo 查询总数
+   */
+  public total: Ref<number>;
+  /**
+   * @todo 弹窗相关对象
+   */
+  public dialog: any;
+  /**
+   * @todo 表格数据数据
+   */
+  public tableData: Ref<Object[]>;
+  /**
+   * @todo 分页页码数据
+   */
+  public pageSizes: number[];
+  /**
+   * @todo 多选保存数组
+   */
   public multipleSelection: any[];
 
   constructor() {
@@ -24,6 +51,11 @@ export default class BasicServices {
     this.listLoading = ref(false);
     this.total = ref(100);
   }
+
+  /**
+   * @todo 选中表格回调函数
+   * @param {any[]} val 选择数组
+   */
   handleSelectionChange = (val?: any[]) => {
     if (val) {
       let arr: any[] = [];
@@ -36,10 +68,20 @@ export default class BasicServices {
     }
   };
 
+  /**
+   * @todo 以params方式跳转到指定path路由页面
+   * @param {string} path
+   * @param {object} params
+   */
   goRouteParams = (path: string, params = {}) => {
     router.push({ path, params });
   };
 
+  /**
+   * @todo 以query方式跳转到指定path路由页面
+   * @param {string} path
+   * @param {object} params
+   */
   goRouteQuery = (path: string, params = {}) => {
     router.push({ path, query: params });
   };

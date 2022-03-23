@@ -12,46 +12,100 @@ import CopyUtils from "../utils/CopyUtils";
 import { ElMessage } from "element-plus";
 
 export default class DatabaseController {
+  /**
+   * @todo 当前激活的host
+   */
   public hostName;
+  /**
+   * @todo host集合
+   */
   public hostNameList;
+  /**
+   * @todo 选中host下数据库集合
+   */
   public selectDataBaseList;
+  /**
+   * @todo 加载选择表格字段动画
+   */
   public listLoading;
+  /**
+   * @todo 选中表格的字段信息
+   */
   public tableData;
-  public total;
+  /**
+   * @todo 当前激活的数据库
+   */
   public activeCollapseNames;
+  /**
+   * @todo 当前选择数据库下的表集合
+   */
   public selectDataBaseTableList;
+  /**
+   * @todo 模板集合
+   */
   public selectTemplateList;
+  /**
+   * @todo 生成配置集合
+   */
   public selectConfigList;
+  /**
+   * @todo 解析配置集合
+   */
   public selectAnalysisList;
+  /**
+   * @todo 生成代码集合
+   */
   public codeList;
+  /**
+   * @todo 当前选中数据库信息
+   */
   public tableInfo;
+  /**
+   * @todo 当前选中表信息
+   */
   public tableItme;
-
+  /**
+   * @todo 生成类型：0依据表单生成
+   */
   public isRadio;
-  public pageForm;
-
+  /**
+   * @todo 生成代码按钮加载动画控制
+   */
   public confirmVisible;
-
+  /**
+   * @todo 生成配置选择表单
+   */
+  public pageForm;
+  /**
+   * @todo 生成配置选择表单Ref
+   */
   public pageFormRef;
+  /**
+   * @todo 生成配置选择表单校验
+   */
   public formRules;
+  /**
+   * @todo 打开代码生成预览界面
+   */
   public dialogVisible;
-
+  /**
+   * @todo 激活标签
+   */
   public typeActiveName;
-  public activeName;
-
+  /**
+   * @todo 复制代码工具
+   */
   private CopyUtils = new CopyUtils();
 
   constructor() {
     this.pageFormRef = ref();
     this.hostName = ref("");
     this.typeActiveName = ref("0");
-    this.activeName = ref("0");
     this.activeCollapseNames = ref("-1");
     this.listLoading = ref(false);
     this.confirmVisible = ref(false);
     this.dialogVisible = ref(false);
     this.tableData = ref([]);
-    this.total = ref(0);
     this.isRadio = ref(0);
     this.hostNameList = ref([]);
     this.selectDataBaseList = ref<any>([]);
@@ -164,7 +218,6 @@ export default class DatabaseController {
       this.tableInfo.value
     );
     this.tableData.value = res.list;
-    this.total.value = res.total || res.row_count;
     this.listLoading.value = false;
   };
 
@@ -259,7 +312,6 @@ export default class DatabaseController {
    */
   typeActiv = (itme: any) => {
     this.typeActiveName.value = itme.index;
-    this.activeName.value = "0";
   };
 
   /** *
@@ -304,7 +356,6 @@ export default class DatabaseController {
         }
         this.confirmVisible.value = true;
         //重置状态
-        this.activeName.value = "0";
         this.typeActiveName.value = "0";
         //构建data
         const data = {
@@ -354,7 +405,6 @@ export default class DatabaseController {
     }
     this.confirmVisible.value = true;
     //重置状态
-    this.activeName.value = "0";
     this.typeActiveName.value = "0";
     const data = {
       templateName: this.pageForm.value.templateName,
