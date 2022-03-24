@@ -33,7 +33,7 @@ export default class BasicServices {
    */
   public pageSizes: number[];
   /**
-   * @todo 多选保存数组
+   * @todo {受保护的} 多选保存数组
    */
   protected multipleSelection: any[];
 
