@@ -35,7 +35,7 @@ export default class BasicServices {
   /**
    * @todo 多选保存数组
    */
-  public multipleSelection: any[];
+  protected multipleSelection: any[];
 
   constructor() {
     this.dialog = reactive({
@@ -47,7 +47,7 @@ export default class BasicServices {
     this.searchFormRef = ref();
     this.tableData = ref([]);
     this.pageSizes = reactive([10, 15, 20, 25]);
-    this.multipleSelection = reactive([]);
+    this.multipleSelection = [];
     this.listLoading = ref(false);
     this.total = ref(100);
   }
