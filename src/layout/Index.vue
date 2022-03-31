@@ -33,7 +33,6 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const title = computed(() => store.state.serviceName)
-    const isCollapse = computed(() => store.state.layout.isCollapse)
     const asideWidth = computed(() =>
       store.state.layout.isCollapse ? '65px' : '201px'
     )

@@ -11,6 +11,9 @@ import CopyUtils from "../utils/CopyUtils";
 
 import { ElMessage } from "element-plus";
 
+/**
+ * @class 此类不是最佳实践。应该将各个逻辑点分离成不同的类以便阅读代码。
+ */
 export default class DatabaseController {
   /**
    * @todo 当前激活的host

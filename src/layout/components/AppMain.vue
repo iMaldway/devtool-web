@@ -1,19 +1,14 @@
 <template>
-  <transition name="fade-transform" mode="out-in">
-    <router-view :key="key" />
-  </transition>
+  <router-view v-slot="{ Component }">
+    <transition name="fade-transform" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { defineComponent } from 'vue'
 export default defineComponent({
-  setup() {
-    const route = useRoute()
-    const key = computed(() => route.path)
-    return {
-      key
-    }
-  }
+  setup() {}
 })
 </script>
 
