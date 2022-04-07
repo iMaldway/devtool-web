@@ -38,7 +38,7 @@
     </el-row>
     <el-row class="app_table">
       <el-table stripe :data="tableData" v-loading="listLoading"
-        @selection-change="handleSelectionChange">
+        v-adaptive="100" @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55">
         </el-table-column>
 

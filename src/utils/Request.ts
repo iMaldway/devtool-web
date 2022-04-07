@@ -30,17 +30,17 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     const res = response.data;
-    let code = res.code;
-    let message = res.message;
+    const code = res.code;
+    const message = res.message;
     // if the custom code is not 20000, it is judged as an error.
     if (code !== 200) {
       ElMessage({
         type: "error",
         message: "操作失败：" + message || "操作失败：意料之外的结果",
       });
-      console.error("接口异常：" + response.config.url);
-      console.error("异常信息：" + message);
-      console.error("错误码为：" + code);
+      console.error("接口异常：", response.config.url);
+      console.error("异常信息：", message);
+      console.error("错误码为：", code);
 
       return Promise.reject(new Error(message || "Error"));
     } else {

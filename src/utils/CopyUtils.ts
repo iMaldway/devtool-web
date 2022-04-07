@@ -6,7 +6,7 @@ export default class CopyUtils {
    * @param {String} elementId
    * @returns {Boolean}
    */
-  copy = (elementId: string) => {
+  copy = (elementId: string): boolean => {
     // 获取selection对象
     var selection = window.getSelection();
     // 清空selection对象
@@ -34,7 +34,7 @@ export default class CopyUtils {
    * @param {String} value
    * @returns {Boolean}
    */
-  copyValue = (value: string) => {
+  copyValue = (value: string): boolean => {
     let transfer = document.createElement("input");
     document.body.appendChild(transfer);
     transfer.value = value;
@@ -53,7 +53,7 @@ export default class CopyUtils {
    * @param {String} elementId
    * @returns {Boolean}
    */
-  copyInputByTypeIsHidden = (elementId: string) => {
+  copyInputByTypeIsHidden = (elementId: string): boolean => {
     if (elementId) {
       let ele: any = document.getElementById(elementId);
       console.log(ele);

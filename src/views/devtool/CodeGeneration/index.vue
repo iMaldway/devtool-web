@@ -74,7 +74,8 @@
           表名：{{ tableItme.tableName }}
         </el-row>
         <el-table v-if="tableData && tableData.length >0" stripe
-          :data="tableData" v-loading="listLoading" style="margin-top: 30px">
+          v-adaptive="100" :data="tableData" v-loading="listLoading"
+          style="margin-top: 30px">
           <el-table-column prop="columnName" align="center" width="160"
             label="字段名称">
           </el-table-column>
