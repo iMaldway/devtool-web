@@ -110,7 +110,7 @@
         v-model="typeActiveName" type="border-card" @tab-click="typeActiv">
         <el-tab-pane v-for="(t, i) in codeList" :key="t.name" :label="t.name"
           :name="i + ''">
-          <el-tabs v-model="typeActiveName">
+          <el-tabs v-model="typeActiveName" v-highlight>
             <input type="hidden" :id="'span-' + i" :value="t.name" />
             <pre v-if="typeActiveName == i + ''">
                 <code :id="'code-'+i"> {{ t.value }} </code>
@@ -123,9 +123,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, toRef } from 'vue'
+import { defineComponent } from 'vue'
 
-import CodeGenerationController from '../../../controller/CodeGenerationController'
+import CodeGenerationController from '@/controller/CodeGenerationController'
 
 export default defineComponent({
   name: 'CodeGeneration',

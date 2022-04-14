@@ -12,6 +12,7 @@
     "codemirror-editor-vue3": "^2.0.3",
     "core-js": "^3.8.3",
     "element-plus": "^2.1.1",
+    "highlight.js": "^11.5.1",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.14",
