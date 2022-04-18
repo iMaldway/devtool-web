@@ -49,7 +49,7 @@ export default class BasicServices {
     this.pageSizes = reactive([10, 15, 20, 25]);
     this.multipleSelection = [];
     this.listLoading = ref(false);
-    this.total = ref(100);
+    this.total = ref(9);
   }
 
   /**

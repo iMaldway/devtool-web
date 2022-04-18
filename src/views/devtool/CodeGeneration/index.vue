@@ -1,6 +1,6 @@
 <template>
   <el-container class="app_container">
-    <el-aside>
+    <el-aside v-show="isRadio === 0">
       <el-select v-model="hostName" placeholder="选择IP地址" @change="getDataBase">
         <el-option v-for="item in hostNameList" :key="item.host"
           :label="item.host" :value="item.host">
