@@ -69,7 +69,7 @@
           </el-form-item>
         </el-form>
       </el-header>
-      <el-main>
+      <el-main v-show="isRadio === 0">
         <el-row>
           表名：{{ tableItme.tableName }}
         </el-row>

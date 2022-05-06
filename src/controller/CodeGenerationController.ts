@@ -1,4 +1,4 @@
-import { reactive, ref } from "vue";
+import { reactive, Ref, ref } from "vue";
 import * as DevtoolGeneratorDatabase from "../api/devtool/DevtoolGeneratorDatabaseService";
 import * as DevtoolTemplate from "../api/devtool/DevtoolTemplateService";
 import * as DevtoolGeneratorConfigService from "../api/devtool/DevtoolGeneratorConfigService";
@@ -22,7 +22,7 @@ export default class DatabaseController {
   /**
    * @todo host集合
    */
-  public hostNameList;
+  public hostNameList: Ref;
   /**
    * @todo 选中host下数据库集合
    */
@@ -54,7 +54,7 @@ export default class DatabaseController {
   /**
    * @todo 解析配置集合
    */
-  public selectAnalysisList;
+  public selectAnalysisList: Ref;
   /**
    * @todo 生成代码集合
    */
@@ -66,7 +66,7 @@ export default class DatabaseController {
   /**
    * @todo 当前选中表信息
    */
-  public tableItme;
+  public tableItme: Ref;
   /**
    * @todo 生成类型：0依据表单生成
    */

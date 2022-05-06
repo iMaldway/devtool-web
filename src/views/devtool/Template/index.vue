@@ -126,7 +126,8 @@
           </el-icon>
           <span class="btn_text">取消</span>
         </el-button>
-        <el-button type="primary" :loading="confirmVisible" @click="confirm">
+        <el-button type="primary" :loading="dialog.confirmVisible"
+          @click="confirm">
           <el-icon>
             <check />
           </el-icon>

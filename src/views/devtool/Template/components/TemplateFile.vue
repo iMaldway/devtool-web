@@ -139,7 +139,8 @@
           </el-icon>
           <span class="btn_text">取消</span>
         </el-button>
-        <el-button type="primary" :loading="confirmVisible" @click="confirm">
+        <el-button type="primary" :loading="dialog.confirmVisible"
+          @click="confirm">
           <el-icon>
             <check />
           </el-icon>
@@ -150,7 +151,7 @@
   </el-row>
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent } from 'vue'
 import TemplateFileController from '../../../../controller/TemplateFileController'
 import { useRoute } from 'vue-router'
 
